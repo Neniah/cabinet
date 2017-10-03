@@ -1,0 +1,24 @@
+!!!
+%html
+%head
+  %title FileCabinet | Your life's work!
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = csrf_meta_tags
+%body
+  %header
+    .header_inner
+      = link_to 'FileCabinet', root_path, id: 'logo'
+
+      %nav
+        - if user_signed_in?
+          = link_to 'Create Doc', new_doc_path
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete
+
+        - else
+          = link_to "Log In", new_user_session_path
+
+  %p.notice= notice
+  %p.alert= alert
+
+  = yield
