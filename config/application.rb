@@ -12,9 +12,8 @@ module Cabinet
     config.load_defaults 5.1
 
     config.generators do |g|
-      g.test.framework :rspec
+      g.test_framework :rspec,
         fixtures: false,
-        views_specs: false,
         views_specs: false,
         helper_specs: false,
         routing_specs: false
